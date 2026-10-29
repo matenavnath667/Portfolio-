@@ -14,13 +14,13 @@ Then visit `http://localhost:8000`.
 
 ## Personalize your portfolio
 
-- **Photo:** Add your real photograph at `assets/navnath-mate.jpg`. Until then, the site shows an NM fallback rather than a broken image.
-- **Resume:** Add your latest PDF as `assets/navnath-mate-resume.pdf`. Until the real file is uploaded, the site offers a resume-request email link instead of a fake download.
+- **Photo:** Your uploaded professional photograph is saved at `assets/navnath-mate.jpg`.
+- **Resume:** Your uploaded resume is saved at `assets/navnath-mate-resume.pdf` with working download and view links.
 - **Certificates:** Add genuine certificates and verify title, issuer, date and credential URL before publishing them.
 - **Projects:** OS Travels is the currently featured source repository. Add other projects only after confirming their implementation status and sharing code, screenshots or a working demo.
-- **Education:** CGPA 6.86 is marked for confirmation against your latest transcript.
+- **Education:** CGPA is listed as 6.86 based on the uploaded resume.
 - **Contact form:** Uses a `mailto:` draft. It does not send through a web server. To receive submissions without the visitor's email app, configure a secure form service/backend and spam protection.
-- **Contact details:** Email and social profile links are included. No phone number is published.
+- **Contact details:** Email and social profile links are included. Phone is included in the PDF resume but not placed on the public contact section.
 
 ## GitHub Pages deployment
 
