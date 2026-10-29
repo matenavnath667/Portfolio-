@@ -14,8 +14,8 @@ Then visit `http://localhost:8000`.
 
 ## Personalize your portfolio
 
-- **Photo:** Your uploaded professional photograph is saved at `assets/navnath-mate.jpg`.
-- **Resume:** Your uploaded resume is saved at `assets/navnath-mate-resume.pdf` with working download and view links.
+- **Photo:** The complete portfolio ZIP includes the real photo at `assets/navnath-mate.jpg`. The GitHub repository needs that asset uploaded to this path to display it; otherwise the site uses its NM fallback.
+- **Resume:** The complete portfolio ZIP includes the resume at `assets/navnath-mate-resume.pdf`. Upload it to this path in the repository to enable in-page PDF view/download; until then, the repository site uses email-request links.
 - **Certificates:** Add genuine certificates and verify title, issuer, date and credential URL before publishing them.
 - **Projects:** OS Travels is the currently featured source repository. Add other projects only after confirming their implementation status and sharing code, screenshots or a working demo.
 - **Education:** CGPA is listed as 6.86 based on the uploaded resume.
