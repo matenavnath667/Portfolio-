@@ -12,10 +12,12 @@
     navLinks.classList.remove('open'); menuToggle.setAttribute('aria-expanded', 'false');
   }));
   const themeToggle = $('#themeToggle'), themeIcon = $('#themeIcon');
+  try { if (localStorage.getItem('portfolio-theme') === 'light') { document.body.classList.add('light-theme'); themeIcon.textContent = '☾'; themeToggle.setAttribute('aria-label', 'Switch to dark theme'); } } catch (_) {}
   themeToggle.addEventListener('click', () => {
     const light = document.body.classList.toggle('light-theme');
     themeIcon.textContent = light ? '☾' : '☼';
     themeToggle.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+    try { localStorage.setItem('portfolio-theme', light ? 'light' : 'dark'); } catch (_) {}
   });
   const roles = ['Python Developer','Aspiring Data Analyst','AI & Data Science Student','Machine Learning Enthusiast'];
   const roleTarget = $('#typedRole'); let roleIndex = 0, charIndex = roles[0].length, deleting = false;
@@ -42,16 +44,18 @@
   filterButtons.forEach(button=>button.addEventListener('click',()=>{
     filterButtons.forEach(item=>item.classList.toggle('active',item===button));
     const filter=button.dataset.filter;
-    projects.forEach(project=>{const categories=(project.dataset.category||'').split(/\\s+/);project.hidden=filter!=='all'&&!categories.includes(filter);});
+    projects.forEach(project=>{const categories=(project.dataset.category||'').split(/\s+/);project.hidden=filter!=='all'&&!categories.includes(filter);});
   }));
   const contactForm=$('#contactForm'), formStatus=$('#formStatus');
   contactForm.addEventListener('submit',event=>{
     event.preventDefault();if(!contactForm.reportValidity())return;
     const data=new FormData(contactForm),name=String(data.get('name')||'').trim(),email=String(data.get('email')||'').trim(),subject=String(data.get('subject')||'').trim(),message=String(data.get('message')||'').trim();
-    const body=`Hi Navnath,\\n\\n${message}\\n\\nRegards,\\n${name}\\n${email}`;
+    const body=`Hi Navnath,\n\n${message}\n\nRegards,\n${name}\n${email}`;
     formStatus.textContent='Opening your email app with this message prepared…';
     window.location.href=`mailto:matenavnath667@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.setTimeout(()=>{formStatus.textContent='If your email app did not open, email matenavnath667@gmail.com directly.';},1800);
   });
+  const photo = $('#profilePhoto'), photoFallback = $('#photoFallback');
+  if (photo && photoFallback) { const showFallback = () => { photo.style.display = 'none'; photoFallback.classList.add('show'); }; photo.addEventListener('error', showFallback, {once:true}); if (!photo.complete || photo.naturalWidth === 0) showFallback(); }
   $('#year').textContent=new Date().getFullYear();
 })();
