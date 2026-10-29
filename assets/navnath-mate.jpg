@@ -1,0 +1,1 @@
+Photo asset should be uploaded as binary through GitHub's contents API; this text-file endpoint cannot store it correctly.
